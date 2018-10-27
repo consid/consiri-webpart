@@ -1,0 +1,13 @@
+{
+  "entries": [
+    {
+      "entry": "./lib/webparts/consiri/ConsiriWebPart.js",
+      "manifest": "./src/webparts/consiri/ConsiriWebPart.manifest.json",
+      "outputPath": "./dist/consiri-web-part.js"
+    }
+  ],
+  "externals": {},
+  "localizedResources": {
+    "ConsiriWebPartStrings": "webparts/consiri/loc/{locale}.js"
+  }
+}

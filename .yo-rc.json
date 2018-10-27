@@ -1,0 +1,11 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "isCreatingSolution": true,
+    "environment": "onprem",
+    "version": "1.6.0",
+    "libraryName": "consiri-webpart",
+    "libraryId": "c8b6757b-bfaa-4415-bf8b-538975a596e6",
+    "packageManager": "npm",
+    "componentType": "webpart"
+  }
+}
