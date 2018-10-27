@@ -7,22 +7,15 @@ import {
   PropertyPaneTextField
 } from '@microsoft/sp-webpart-base';
 
-import * as strings from 'ConsiriWebPartStrings';
 import Consiri from './components/Consiri';
-import { IConsiriProps } from './components/IConsiriProps';
-
-export interface IConsiriWebPartProps {
-  description: string;
-}
+import { IConsiriWebPartProps } from './IConsiriWebPartProps';
 
 export default class ConsiriWebPart extends BaseClientSideWebPart<IConsiriWebPartProps> {
 
   public render(): void {
-    const element: React.ReactElement<IConsiriProps > = React.createElement(
+    const element: React.ReactElement<IConsiriWebPartProps > = React.createElement(
       Consiri,
-      {
-        description: this.properties.description
-      }
+      { ...this.properties, message: '', context: this.context }
     );
 
     ReactDom.render(element, this.domElement);
@@ -41,14 +34,50 @@ export default class ConsiriWebPart extends BaseClientSideWebPart<IConsiriWebPar
       pages: [
         {
           header: {
-            description: strings.PropertyPaneDescription
+            description: 'Here you can set various properties and settings regarding how your bot chat web part will look visually and functionally work'
           },
           groups: [
             {
-              groupName: strings.BasicGroupName,
+              groupName: 'Bot Connection',
               groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
+                PropertyPaneTextField('directLineSecret', {
+                  label: 'Direct Line Secret'
+                })
+              ]
+            },
+            {
+              groupName: 'Appearance',
+              groupFields: [
+                PropertyPaneTextField('title', {
+                  label: 'Title'
+                }),
+                PropertyPaneTextField('placeholderText', {
+                  label: 'Placeholder text'
+                }),
+                PropertyPaneTextField('titleBarBackgroundColor', {
+                  label: 'Title bar background color',
+                  onGetErrorMessage: this._validateColorPropertyAsync.bind(this), // validation function
+                  deferredValidationTime: 500 // delay after which to run the validation function
+                }),
+                PropertyPaneTextField('botMessagesBackgroundColor', {
+                  label: 'Bot messages background color',
+                  onGetErrorMessage: this._validateColorPropertyAsync.bind(this), // validation function
+                  deferredValidationTime: 500 // delay after which to run the validation function
+                }),
+                PropertyPaneTextField('botMessagesForegroundColor', {
+                  label: 'Bot messages foreground color',
+                  onGetErrorMessage: this._validateColorPropertyAsync.bind(this), // validation function
+                  deferredValidationTime: 500 // delay after which to run the validation function
+                }),
+                PropertyPaneTextField('userMessagesBackgroundColor', {
+                  label: 'User messages background color',
+                  onGetErrorMessage: this._validateColorPropertyAsync.bind(this), // validation function
+                  deferredValidationTime: 500 // delay after which to run the validation function
+                }),
+                PropertyPaneTextField('userMessagesForegroundColor', {
+                  label: 'User messages foreground color',
+                  onGetErrorMessage: this._validateColorPropertyAsync.bind(this), // validation function
+                  deferredValidationTime: 500 // delay after which to run the validation function
                 })
               ]
             }
@@ -56,5 +85,14 @@ export default class ConsiriWebPart extends BaseClientSideWebPart<IConsiriWebPar
         }
       ]
     };
+  }
+
+  private _validateColorPropertyAsync(value: string): string {
+    var colorRegex = /^([a-zA-Z0-9]){6}$/;
+    if (!value || colorRegex.test(value) == false) {
+      return "Please enter a valid 6 character hex color value";
+    }
+
+    return "";
   }
 }
