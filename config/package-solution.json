@@ -3,7 +3,9 @@
   "solution": {
     "name": "consiri-webpart-client-side-solution",
     "id": "c8b6757b-bfaa-4415-bf8b-538975a596e6",
-    "version": "1.0.0.0"
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true
   },
   "paths": {
     "zippedPackage": "solution/consiri-webpart.sppkg"

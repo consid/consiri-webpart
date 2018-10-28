@@ -1,13 +1,18 @@
 {
-  "entries": [
-    {
-      "entry": "./lib/webparts/consiri/ConsiriWebPart.js",
-      "manifest": "./src/webparts/consiri/ConsiriWebPart.manifest.json",
-      "outputPath": "./dist/consiri-web-part.js"
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "consiri-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/consiri/ConsiriWebPart.js",
+          "manifest": "./src/webparts/consiri/ConsiriWebPart.manifest.json"
+        }
+      ]
     }
-  ],
+  },
   "externals": {},
   "localizedResources": {
-    "ConsiriWebPartStrings": "webparts/consiri/loc/{locale}.js"
+    "ConsiriWebPartStrings": "lib/webparts/consiri/loc/{locale}.js"
   }
 }

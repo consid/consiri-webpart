@@ -1,7 +1,9 @@
 declare interface IConsiriWebPartStrings {
   PropertyPaneDescription: string;
-  BasicGroupName: string;
-  DescriptionFieldLabel: string;
+  BotConnectionGroupName: string;
+  AppearanceGroupName: string;
+  DirectLineSecretFieldLabel: string;
+  ChatTitleFieldLabel: string;
 }
 
 declare module 'ConsiriWebPartStrings' {

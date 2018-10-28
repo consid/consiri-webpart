@@ -7,6 +7,7 @@ import {
   PropertyPaneTextField
 } from '@microsoft/sp-webpart-base';
 
+import * as strings from 'ConsiriWebPartStrings';
 import Consiri, { ConsiriProps } from './components/Consiri';
 import { ConsiriWebPartProps } from './ConsiriWebPartProps';
 
@@ -34,22 +35,22 @@ export default class ConsiriWebPart extends BaseClientSideWebPart<ConsiriWebPart
       pages: [
         {
           header: {
-            description: 'Here you can set various properties and settings regarding how your bot chat web part will look visually and functionally work'
+            description: strings.PropertyPaneDescription
           },
           groups: [
             {
-              groupName: 'Bot Connection',
+              groupName: strings.BotConnectionGroupName,
               groupFields: [
                 PropertyPaneTextField('directLineSecret', {
-                  label: 'Direct Line Secret'
+                  label: strings.DirectLineSecretFieldLabel
                 })
               ]
             },
             {
-              groupName: 'Appearance',
+              groupName: strings.AppearanceGroupName,
               groupFields: [
                 PropertyPaneTextField('chatTitle', {
-                  label: 'Title'
+                  label: strings.ChatTitleFieldLabel
                 })
               ]
             }
