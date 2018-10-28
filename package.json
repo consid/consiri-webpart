@@ -23,18 +23,15 @@
     "@types/react-addons-update": "0.14.14",
     "@types/react-dom": "0.14.18",
     "@types/webpack-env": "1.13.1",
+    "botframework-webchat": "^0.14.2",
     "react": "15.4.2",
-    "react-dom": "15.4.2",
-    "swagger-client": "^2.1.23"
+    "react-dom": "15.4.2"
   },
   "devDependencies": {
     "@microsoft/sp-build-web": "~1.1.0",
     "@microsoft/sp-module-interfaces": "~1.1.0",
     "@microsoft/sp-webpart-workbench": "~1.1.0",
     "tslint-microsoft-contrib": "~5.0.0",
-    "gulp": "~3.9.1",
-    "@types/chai": "3.4.34",
-    "@types/mocha": "2.2.38",
-    "ajv": "~5.2.2"
+    "gulp": "~3.9.1"
   }
 }

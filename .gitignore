@@ -30,3 +30,8 @@ obj
 
 # Styles Generated Code
 *.scss.ts
+
+# Build output
+src/**/*.js
+src/**/*.js.map
+src/**/*.d.ts

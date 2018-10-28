@@ -7,15 +7,15 @@ import {
   PropertyPaneTextField
 } from '@microsoft/sp-webpart-base';
 
-import Consiri from './components/Consiri';
-import { IConsiriWebPartProps } from './IConsiriWebPartProps';
+import Consiri, { ConsiriProps } from './components/Consiri';
+import { ConsiriWebPartProps } from './ConsiriWebPartProps';
 
-export default class ConsiriWebPart extends BaseClientSideWebPart<IConsiriWebPartProps> {
+export default class ConsiriWebPart extends BaseClientSideWebPart<ConsiriWebPartProps> {
 
   public render(): void {
-    const element: React.ReactElement<IConsiriWebPartProps > = React.createElement(
+    const element: React.ReactElement<ConsiriProps> = React.createElement(
       Consiri,
-      { ...this.properties, message: '', context: this.context }
+      { ...this.properties, context: this.context }
     );
 
     ReactDom.render(element, this.domElement);
@@ -48,36 +48,8 @@ export default class ConsiriWebPart extends BaseClientSideWebPart<IConsiriWebPar
             {
               groupName: 'Appearance',
               groupFields: [
-                PropertyPaneTextField('title', {
+                PropertyPaneTextField('chatTitle', {
                   label: 'Title'
-                }),
-                PropertyPaneTextField('placeholderText', {
-                  label: 'Placeholder text'
-                }),
-                PropertyPaneTextField('titleBarBackgroundColor', {
-                  label: 'Title bar background color',
-                  onGetErrorMessage: this._validateColorPropertyAsync.bind(this), // validation function
-                  deferredValidationTime: 500 // delay after which to run the validation function
-                }),
-                PropertyPaneTextField('botMessagesBackgroundColor', {
-                  label: 'Bot messages background color',
-                  onGetErrorMessage: this._validateColorPropertyAsync.bind(this), // validation function
-                  deferredValidationTime: 500 // delay after which to run the validation function
-                }),
-                PropertyPaneTextField('botMessagesForegroundColor', {
-                  label: 'Bot messages foreground color',
-                  onGetErrorMessage: this._validateColorPropertyAsync.bind(this), // validation function
-                  deferredValidationTime: 500 // delay after which to run the validation function
-                }),
-                PropertyPaneTextField('userMessagesBackgroundColor', {
-                  label: 'User messages background color',
-                  onGetErrorMessage: this._validateColorPropertyAsync.bind(this), // validation function
-                  deferredValidationTime: 500 // delay after which to run the validation function
-                }),
-                PropertyPaneTextField('userMessagesForegroundColor', {
-                  label: 'User messages foreground color',
-                  onGetErrorMessage: this._validateColorPropertyAsync.bind(this), // validation function
-                  deferredValidationTime: 500 // delay after which to run the validation function
                 })
               ]
             }
@@ -85,14 +57,5 @@ export default class ConsiriWebPart extends BaseClientSideWebPart<IConsiriWebPar
         }
       ]
     };
-  }
-
-  private _validateColorPropertyAsync(value: string): string {
-    var colorRegex = /^([a-zA-Z0-9]){6}$/;
-    if (!value || colorRegex.test(value) == false) {
-      return "Please enter a valid 6 character hex color value";
-    }
-
-    return "";
   }
 }
