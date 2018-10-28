@@ -4,5 +4,6 @@ export interface ConsiriWebPartProps {
   description: string;
   directLineSecret: string;
   chatTitle: string;
+  showUploadButton: boolean;
   context: IWebPartContext;
 }

@@ -4,8 +4,11 @@ import { Version } from '@microsoft/sp-core-library';
 import {
   BaseClientSideWebPart,
   IPropertyPaneConfiguration,
-  PropertyPaneTextField
+  PropertyPaneTextField,
+  PropertyPaneCheckbox,
+  PropertyPaneLabel
 } from '@microsoft/sp-webpart-base';
+import { SPComponentLoader } from '@microsoft/sp-loader';
 
 import * as strings from 'ConsiriWebPartStrings';
 import Consiri, { ConsiriProps } from './components/Consiri';
@@ -20,6 +23,11 @@ export default class ConsiriWebPart extends BaseClientSideWebPart<ConsiriWebPart
     );
 
     ReactDom.render(element, this.domElement);
+  }
+
+  protected onInit(): Promise<void> {
+    SPComponentLoader.loadCss('https://cdn.botframework.com/botframework-webchat/latest/botchat.css');
+    return super.onInit();
   }
 
   protected onDispose(): void {
@@ -51,6 +59,9 @@ export default class ConsiriWebPart extends BaseClientSideWebPart<ConsiriWebPart
               groupFields: [
                 PropertyPaneTextField('chatTitle', {
                   label: strings.ChatTitleFieldLabel
+                }),
+                PropertyPaneCheckbox('showUploadButton', {
+                  text: strings.ShowUploadButtonFieldLabel
                 })
               ]
             }

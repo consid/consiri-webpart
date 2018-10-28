@@ -17,13 +17,12 @@ export default class Consiri extends React.Component<ConsiriProps, ConsiriState>
   }
 
   public render(): JSX.Element {
-    const { directLineSecret, chatTitle } = this.props;
+    const { directLineSecret, chatTitle, showUploadButton } = this.props;
     const { loginName } = this.state;
     if(!directLineSecret) return <div>Setup webpart properties</div>;
     return <div className={styles.consiri}>
-         <link href="https://cdn.botframework.com/botframework-webchat/latest/botchat.css" rel="stylesheet" />
-         <Chat bot={{ id: null }} directLine={{ secret: directLineSecret }} chatTitle={chatTitle}
-            user={{ id: loginName }} adaptiveCardsHostConfig={null} />
+         <Chat bot={{ id: null }} directLine={{ secret: directLineSecret }} user={{ id: loginName }} adaptiveCardsHostConfig={null}
+            chatTitle={chatTitle} showUploadButton={showUploadButton} />
       </div>;
   }
 }

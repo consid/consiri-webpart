@@ -4,6 +4,7 @@ declare interface IConsiriWebPartStrings {
   AppearanceGroupName: string;
   DirectLineSecretFieldLabel: string;
   ChatTitleFieldLabel: string;
+  ShowUploadButtonFieldLabel: string;
 }
 
 declare module 'ConsiriWebPartStrings' {

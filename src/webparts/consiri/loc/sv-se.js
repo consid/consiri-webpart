@@ -4,6 +4,7 @@ define([], function() {
     "BotConnectionGroupName": "Bot-anslutning",
     "AppearanceGroupName": "Utseende",
     "DirectLineSecretFieldLabel": "Direct Line Nyckel/Secret",
-    "ChatTitleFieldLabel": "Titel"
+    "ChatTitleFieldLabel": "Titel",
+    "ShowUploadButtonFieldLabel": "Visa uppladdningsknapp"
   }
 });

@@ -4,6 +4,7 @@ define([], function() {
     "BotConnectionGroupName": "Bot Connection",
     "AppearanceGroupName": "Appearance",
     "DirectLineSecretFieldLabel": "Direct Line Secret",
-    "ChatTitleFieldLabel": "Title"
+    "ChatTitleFieldLabel": "Title",
+    "ShowUploadButtonFieldLabel": "Show upload button"
   }
 });
